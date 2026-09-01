@@ -1,9 +1,23 @@
 <script setup>
+import { ref, onMounted, onUnmounted } from 'vue'
 import { appLinks, navItems } from '../../data/landingContent'
+
+const compact = ref(false)
+
+function onScroll() {
+  compact.value = window.scrollY > 24
+}
+
+onMounted(() => {
+  onScroll()
+  window.addEventListener('scroll', onScroll, { passive: true })
+})
+
+onUnmounted(() => window.removeEventListener('scroll', onScroll))
 </script>
 
 <template>
-  <header class="nav-wrap">
+  <header class="nav-wrap" :class="{ compact }">
     <a class="brand" href="#" aria-label="NatsGo home">
       <img src="/natsgo-icon.svg" alt="" width="30" height="30" />
       <span>Nats<em>Go</em></span>
@@ -44,7 +58,7 @@ import { appLinks, navItems } from '../../data/landingContent'
 
 <style scoped>
 .nav-wrap {
-  position: absolute;
+  position: fixed;
   top: 16px;
   left: 50%;
   z-index: 50;
@@ -60,9 +74,22 @@ import { appLinks, navItems } from '../../data/landingContent'
   border-radius: 999px;
   padding: 0 8px 0 12px;
   transition:
+    top 260ms var(--ease),
+    width 260ms var(--ease),
     background 220ms var(--ease),
     border-color 220ms var(--ease),
-    box-shadow 220ms var(--ease);
+    box-shadow 220ms var(--ease),
+    height 220ms var(--ease);
+}
+
+.nav-wrap.compact {
+  top: 12px;
+  width: min(920px, calc(100% - 28px));
+  height: 52px;
+  border-color: rgba(255, 255, 255, 0.74);
+  background: rgba(255, 255, 255, 0.74);
+  box-shadow: var(--shadow-sm);
+  backdrop-filter: blur(18px);
 }
 
 .brand {
@@ -179,6 +206,11 @@ nav a:hover {
     width: min(100% - 28px, 1010px);
     grid-template-columns: 1fr auto;
     gap: 10px;
+  }
+
+  .nav-wrap.compact {
+    top: 10px;
+    width: min(100% - 20px, 920px);
   }
 
   nav {
