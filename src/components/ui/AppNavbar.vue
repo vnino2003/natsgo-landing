@@ -34,12 +34,21 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
     </nav>
 
     <div class="nav-actions">
-      <a class="nav-web-link" :href="appLinks.web">Open web app</a>
+      <a
+        class="nav-web-link"
+        :href="appLinks.web || undefined"
+        :aria-disabled="!appLinks.web"
+        @click="!appLinks.web && $event.preventDefault()"
+      >
+        Open web app
+      </a>
       <a
         class="nav-action"
-        :href="appLinks.android"
+        :href="appLinks.android || undefined"
+        :aria-disabled="!appLinks.android"
         aria-label="Download Android app"
         title="Download Android app"
+        @click="!appLinks.android && $event.preventDefault()"
       >
         Download now
       </a>
@@ -162,6 +171,11 @@ nav a:hover {
   font-weight: 800;
   box-shadow: 0 12px 28px rgba(30, 136, 229, 0.24);
   white-space: nowrap;
+}
+
+.nav-web-link[aria-disabled="true"],
+.nav-action[aria-disabled="true"] {
+  cursor: default;
 }
 
 @media (max-width: 740px) {

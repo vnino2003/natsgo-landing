@@ -1,6 +1,6 @@
 export const appLinks = {
-  web: 'https://natsgofrontend.vercel.app/',
-  android: 'https://github.com/vnino2003/NATSGO_FRONTEND/releases/latest/download/natsgo.apk',
+  web: '',
+  android: '',
 }
 
 export const navItems = [

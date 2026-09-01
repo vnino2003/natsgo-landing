@@ -13,13 +13,26 @@ import { appLinks } from '../../data/landingContent'
         </p>
       </div>
       <div class="cta-actions">
-        <a class="btn-primary cta-download" :href="appLinks.android" aria-label="Download Android app">
+        <a
+          class="btn-primary cta-download"
+          :href="appLinks.android || undefined"
+          :aria-disabled="!appLinks.android"
+          aria-label="Download Android app"
+          @click="!appLinks.android && $event.preventDefault()"
+        >
           <svg viewBox="0 0 24 24" aria-hidden="true">
             <path d="M8.1 3.6 6.9 1.5a.7.7 0 0 0-1.2.7l1.2 2.1A7 7 0 0 0 5 9v1h14V9a7 7 0 0 0-1.9-4.7l1.2-2.1a.7.7 0 0 0-1.2-.7l-1.2 2.1A7.4 7.4 0 0 0 12 2.5c-1.4 0-2.7.4-3.9 1.1ZM8.5 7a.8.8 0 1 1 0-1.6.8.8 0 0 1 0 1.6Zm7 0a.8.8 0 1 1 0-1.6.8.8 0 0 1 0 1.6ZM5 11.5h14v6.8c0 1-.8 1.7-1.7 1.7H6.7c-1 0-1.7-.8-1.7-1.7v-6.8Zm-2.3.2c.7 0 1.3.6 1.3 1.3v4.2a1.3 1.3 0 0 1-2.6 0V13c0-.7.6-1.3 1.3-1.3Zm18.6 0c.7 0 1.3.6 1.3 1.3v4.2a1.3 1.3 0 0 1-2.6 0V13c0-.7.6-1.3 1.3-1.3Z" />
           </svg>
           Download now
         </a>
-        <a class="btn-secondary" :href="appLinks.web">Open web app</a>
+        <a
+          class="btn-secondary"
+          :href="appLinks.web || undefined"
+          :aria-disabled="!appLinks.web"
+          @click="!appLinks.web && $event.preventDefault()"
+        >
+          Open web app
+        </a>
       </div>
     </div>
   </section>
@@ -108,6 +121,10 @@ import { appLinks } from '../../data/landingContent'
   background: rgba(255, 255, 255, 0.1);
   color: rgba(255, 255, 255, 0.86);
   box-shadow: none;
+}
+
+.cta-actions a[aria-disabled="true"] {
+  cursor: default;
 }
 
 @media (max-width: 780px) {

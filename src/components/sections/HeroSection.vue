@@ -24,8 +24,22 @@ import { appLinks } from '../../data/landingContent'
           in one simple commuter app.
         </p>
         <div class="hero-actions">
-          <a class="btn-primary" :href="appLinks.android">Download now</a>
-          <a class="hero-text-link" :href="appLinks.web">Open web app</a>
+          <a
+            class="btn-primary"
+            :href="appLinks.android || undefined"
+            :aria-disabled="!appLinks.android"
+            @click="!appLinks.android && $event.preventDefault()"
+          >
+            Download now
+          </a>
+          <a
+            class="hero-text-link"
+            :href="appLinks.web || undefined"
+            :aria-disabled="!appLinks.web"
+            @click="!appLinks.web && $event.preventDefault()"
+          >
+            Open web app
+          </a>
         </div>
       </div>
 
@@ -166,6 +180,10 @@ import { appLinks } from '../../data/landingContent'
 
 .hero-text-link:hover {
   color: var(--text);
+}
+
+.hero-actions a[aria-disabled="true"] {
+  cursor: default;
 }
 
 .hero-stage {

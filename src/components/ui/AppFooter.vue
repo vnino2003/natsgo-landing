@@ -13,7 +13,13 @@ import { appLinks } from '../../data/landingContent'
       <p>Bus tracking for the Natsco Calapan and Naujan route.</p>
 
       <div class="footer-links">
-        <a :href="appLinks.web">Commuter app</a>
+        <a
+          :href="appLinks.web || undefined"
+          :aria-disabled="!appLinks.web"
+          @click="!appLinks.web && $event.preventDefault()"
+        >
+          Commuter app
+        </a>
         <a href="#operations">Features</a>
         <a href="#faq">Questions</a>
       </div>
@@ -72,6 +78,10 @@ import { appLinks } from '../../data/landingContent'
 
 .footer a:hover {
   color: var(--text);
+}
+
+.footer a[aria-disabled="true"] {
+  cursor: default;
 }
 
 @media (max-width: 760px) {
