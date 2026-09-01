@@ -167,6 +167,19 @@ svg {
   background: linear-gradient(90deg, transparent, var(--line-strong), transparent);
 }
 
+.site-shell {
+  opacity: 0;
+  transform: translateY(8px);
+  transition:
+    opacity 680ms var(--ease),
+    transform 680ms var(--ease);
+}
+
+.site-shell.ready {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .reveal {
   opacity: 1;
 }
@@ -217,6 +230,11 @@ svg {
   }
 
   .js-reveal .reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  .site-shell {
     opacity: 1;
     transform: none;
   }

@@ -69,6 +69,7 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
   align-items: center;
   gap: 18px;
   transform: translateX(-50%);
+  animation: navDrop 760ms var(--ease) 180ms both;
   border: 1px solid transparent;
   border-radius: 999px;
   padding: 0 8px 0 12px;
@@ -171,11 +172,32 @@ nav a:hover {
   font-weight: 800;
   box-shadow: 0 12px 28px rgba(30, 136, 229, 0.24);
   white-space: nowrap;
+  transition:
+    background 180ms var(--ease),
+    box-shadow 180ms var(--ease),
+    transform 180ms var(--ease);
+}
+
+.nav-action:hover {
+  background: var(--brand-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 15px 32px rgba(30, 136, 229, 0.28);
 }
 
 .nav-web-link[aria-disabled="true"],
 .nav-action[aria-disabled="true"] {
   cursor: default;
+}
+
+@keyframes navDrop {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -14px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
 }
 
 @media (max-width: 740px) {

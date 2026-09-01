@@ -8,22 +8,38 @@ let timer = null
 
 function setActive(index) {
   activeIndex.value = index
+  startTimer()
 }
 
 function nextScreen() {
   activeIndex.value = (activeIndex.value + 1) % appScreens.length
+  startTimer()
 }
 
 function prevScreen() {
   activeIndex.value = (activeIndex.value - 1 + appScreens.length) % appScreens.length
+  startTimer()
+}
+
+function startTimer() {
+  stopTimer()
+  timer = window.setInterval(() => {
+    activeIndex.value = (activeIndex.value + 1) % appScreens.length
+  }, 5200)
+}
+
+function stopTimer() {
+  if (!timer) return
+  window.clearInterval(timer)
+  timer = null
 }
 
 onMounted(() => {
-  timer = window.setInterval(nextScreen, 5200)
+  startTimer()
 })
 
 onUnmounted(() => {
-  window.clearInterval(timer)
+  stopTimer()
 })
 </script>
 
@@ -51,7 +67,14 @@ onUnmounted(() => {
         </div>
       </div>
 
-      <div class="showcase-panel reveal" style="transition-delay: .12s">
+      <div
+        class="showcase-panel reveal"
+        style="transition-delay: .12s"
+        @mouseenter="stopTimer"
+        @mouseleave="startTimer"
+        @focusin="stopTimer"
+        @focusout="startTimer"
+      >
         <button class="carousel-button prev" type="button" aria-label="Previous screen" @click="prevScreen">
           <span aria-hidden="true"></span>
         </button>

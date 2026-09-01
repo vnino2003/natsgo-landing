@@ -1,7 +1,8 @@
 <script setup>
-import { onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
 import AppNavbar         from './components/ui/AppNavbar.vue'
 import AppFooter         from './components/ui/AppFooter.vue'
+import PageIntro         from './components/ui/PageIntro.vue'
 import HeroSection       from './components/sections/HeroSection.vue'
 import WhySection        from './components/sections/WhySection.vue'
 import PhoneShowcase     from './components/sections/PhoneShowcase.vue'
@@ -10,7 +11,18 @@ import HowItWorksSection from './components/sections/HowItWorksSection.vue'
 import FaqSection        from './components/sections/FaqSection.vue'
 import CtaSection        from './components/sections/CtaSection.vue'
 
+const introVisible = ref(true)
+const pageReady = ref(false)
+
 onMounted(() => {
+  window.setTimeout(() => {
+    pageReady.value = true
+  }, 120)
+
+  window.setTimeout(() => {
+    introVisible.value = false
+  }, 980)
+
   document.body.classList.add('js-reveal')
   const io = new IntersectionObserver(
     entries => entries.forEach((entry) => {
@@ -28,28 +40,32 @@ onMounted(() => {
 </script>
 
 <template>
-  <AppNavbar />
+  <PageIntro :visible="introVisible" />
 
-  <main>
-    <HeroSection />
+  <div class="site-shell" :class="{ ready: pageReady }">
+    <AppNavbar />
 
-    <div class="divider"></div>
-    <PhoneShowcase />
+    <main>
+      <HeroSection />
 
-    <div class="divider"></div>
-    <WhySection />
+      <div class="divider"></div>
+      <PhoneShowcase />
 
-    <div class="divider"></div>
-    <FeaturesSection />
+      <div class="divider"></div>
+      <WhySection />
 
-    <div class="divider"></div>
-    <HowItWorksSection />
+      <div class="divider"></div>
+      <FeaturesSection />
 
-    <div class="divider"></div>
-    <FaqSection />
+      <div class="divider"></div>
+      <HowItWorksSection />
 
-    <CtaSection />
-  </main>
+      <div class="divider"></div>
+      <FaqSection />
 
-  <AppFooter />
+      <CtaSection />
+    </main>
+
+    <AppFooter />
+  </div>
 </template>

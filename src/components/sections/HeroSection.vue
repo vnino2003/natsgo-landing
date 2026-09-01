@@ -138,6 +138,7 @@ import { appLinks } from '../../data/landingContent'
   line-height: 1.05;
   letter-spacing: -0.039em;
   font-weight: 720;
+  animation: heroTextIn 840ms var(--ease) 260ms both;
 }
 
 .hero h1 span {
@@ -161,6 +162,7 @@ import { appLinks } from '../../data/landingContent'
   color: var(--muted);
   font-size: clamp(16px, 1.65vw, 18px);
   line-height: 1.72;
+  animation: heroTextIn 840ms var(--ease) 340ms both;
 }
 
 .hero-actions {
@@ -169,6 +171,7 @@ import { appLinks } from '../../data/landingContent'
   align-items: center;
   gap: 18px;
   margin-top: 30px;
+  animation: heroTextIn 840ms var(--ease) 430ms both;
 }
 
 .hero-text-link {
@@ -192,6 +195,7 @@ import { appLinks } from '../../data/landingContent'
   display: grid;
   place-items: center;
   padding-top: 18px;
+  animation: heroStageIn 920ms var(--ease) 380ms both;
 }
 
 .orbit {
@@ -243,6 +247,7 @@ import { appLinks } from '../../data/landingContent'
   background: rgba(255, 255, 255, 0.66);
   box-shadow: 0 12px 34px rgba(15, 23, 42, 0.07);
   backdrop-filter: blur(14px);
+  animation: stripIn 820ms var(--ease) 560ms both;
 }
 
 .hero-strip span {
@@ -281,6 +286,39 @@ import { appLinks } from '../../data/landingContent'
   }
   50% {
     transform: translateY(-22px) rotate(0.8deg);
+  }
+}
+
+@keyframes heroTextIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroStageIn {
+  from {
+    opacity: 0;
+    transform: translateX(22px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes stripIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
   }
 }
 
