@@ -5,7 +5,7 @@ import { appLinks, navItems } from '../../data/landingContent'
 const compact = ref(false)
 
 function onScroll() {
-  compact.value = window.scrollY > 24
+  compact.value = window.scrollY > 80
 }
 
 onMounted(() => {
@@ -59,7 +59,7 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
 <style scoped>
 .nav-wrap {
   position: fixed;
-  top: 16px;
+  top: -80px;
   left: 50%;
   z-index: 50;
   width: min(1010px, calc(100% - 40px));
@@ -69,12 +69,11 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
   align-items: center;
   gap: 18px;
   transform: translateX(-50%);
-  animation: navDrop 760ms var(--ease) 180ms both;
   border: 1px solid transparent;
   border-radius: 999px;
   padding: 0 8px 0 12px;
   transition:
-    top 260ms var(--ease),
+    top 360ms var(--ease),
     width 260ms var(--ease),
     background 220ms var(--ease),
     border-color 220ms var(--ease),
