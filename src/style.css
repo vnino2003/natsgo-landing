@@ -169,15 +169,11 @@ svg {
 
 .site-shell {
   opacity: 0;
-  transform: translateY(8px);
-  transition:
-    opacity 680ms var(--ease),
-    transform 680ms var(--ease);
+  transition: opacity 520ms var(--ease);
 }
 
 .site-shell.ready {
   opacity: 1;
-  transform: none;
 }
 
 .reveal {
@@ -236,6 +232,5 @@ svg {
 
   .site-shell {
     opacity: 1;
-    transform: none;
   }
 }

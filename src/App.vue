@@ -2,7 +2,6 @@
 import { onMounted, ref } from 'vue'
 import AppNavbar         from './components/ui/AppNavbar.vue'
 import AppFooter         from './components/ui/AppFooter.vue'
-import PageIntro         from './components/ui/PageIntro.vue'
 import HeroSection       from './components/sections/HeroSection.vue'
 import WhySection        from './components/sections/WhySection.vue'
 import PhoneShowcase     from './components/sections/PhoneShowcase.vue'
@@ -11,17 +10,12 @@ import HowItWorksSection from './components/sections/HowItWorksSection.vue'
 import FaqSection        from './components/sections/FaqSection.vue'
 import CtaSection        from './components/sections/CtaSection.vue'
 
-const introVisible = ref(true)
 const pageReady = ref(false)
 
 onMounted(() => {
-  window.setTimeout(() => {
+  window.requestAnimationFrame(() => {
     pageReady.value = true
-  }, 120)
-
-  window.setTimeout(() => {
-    introVisible.value = false
-  }, 980)
+  })
 
   document.body.classList.add('js-reveal')
   const io = new IntersectionObserver(
@@ -40,8 +34,6 @@ onMounted(() => {
 </script>
 
 <template>
-  <PageIntro :visible="introVisible" />
-
   <div class="site-shell" :class="{ ready: pageReady }">
     <AppNavbar />
 
