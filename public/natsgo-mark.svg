@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="NatsGo mark">
+  <defs>
+    <filter id="soft-shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#17212b" flood-opacity=".16"/>
+    </filter>
+  </defs>
+  <path
+    d="M150 356C150 308 150 210 150 156C208 206 302 300 362 356C362 300 362 214 362 156"
+    fill="none"
+    stroke="#17212b"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    stroke-width="42"
+    filter="url(#soft-shadow)"
+  />
+  <circle cx="150" cy="356" r="31" fill="#19a86b"/>
+  <circle cx="362" cy="156" r="31" fill="#246bfe"/>
+  <circle cx="362" cy="156" r="48" fill="none" stroke="#246bfe" stroke-opacity=".28" stroke-width="10"/>
+</svg>
