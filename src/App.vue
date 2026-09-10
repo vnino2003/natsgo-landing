@@ -6,6 +6,7 @@ import HeroSection       from './components/sections/HeroSection.vue'
 import WhySection        from './components/sections/WhySection.vue'
 import PhoneShowcase     from './components/sections/PhoneShowcase.vue'
 import FeaturesSection   from './components/sections/FeaturesSection.vue'
+import NoriSection       from './components/sections/NoriSection.vue'
 import HowItWorksSection from './components/sections/HowItWorksSection.vue'
 import FaqSection        from './components/sections/FaqSection.vue'
 import CtaSection        from './components/sections/CtaSection.vue'
@@ -48,6 +49,9 @@ onMounted(() => {
 
       <div class="divider"></div>
       <FeaturesSection />
+
+      <div class="divider"></div>
+      <NoriSection />
 
       <div class="divider"></div>
       <HowItWorksSection />

@@ -102,6 +102,15 @@ export const commuterFlow = [
   },
 ]
 
+export const noriConversation = [
+  { from: 'user', text: 'Is there a bus nearby?' },
+  { from: 'nori', text: 'There\'s a Natsco bus heading to Naujan, about 8 minutes away from your area.' },
+  { from: 'user', text: 'What time does it arrive?' },
+  { from: 'nori', text: 'Based on current speed, estimated arrival is around 2:45 PM at Naujan terminal.' },
+  { from: 'user', text: 'How much is the fare?' },
+  { from: 'nori', text: 'Regular fare for Calapan–Naujan is ₱38. Student and senior discounts are available.' },
+]
+
 export const faqs = [
   {
     q: 'What route is this for?',
