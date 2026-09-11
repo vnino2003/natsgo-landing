@@ -103,12 +103,14 @@ export const commuterFlow = [
 ]
 
 export const noriConversation = [
-  { from: 'user', text: 'Is there a bus nearby?' },
-  { from: 'nori', text: 'There\'s a Natsco bus heading to Naujan, about 8 minutes away from your area.' },
-  { from: 'user', text: 'What time does it arrive?' },
-  { from: 'nori', text: 'Based on current speed, estimated arrival is around 2:45 PM at Naujan terminal.' },
+  { from: 'user', text: 'Where can I find a bus?' },
+  { from: 'nori', text: 'Check the live map for bus positions — choose one to see its latest available location.' },
+  { from: 'user', text: 'When will it arrive?' },
+  { from: 'nori', text: 'Open Arrivals for predictions near you. Allow location access for the best results.' },
   { from: 'user', text: 'How much is the fare?' },
-  { from: 'nori', text: 'Regular fare for Calapan–Naujan is ₱38. Student and senior discounts are available.' },
+  { from: 'nori', text: 'Head to Fares & Promos on Home for published fares and available discounts.' },
+  { from: 'user', text: 'Thanks!' },
+  { from: 'nori', text: "You're welcome — I'm here whenever you need a hand." },
 ]
 
 export const faqs = [
