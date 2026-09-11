@@ -104,11 +104,11 @@ export const commuterFlow = [
 
 export const noriConversation = [
   { from: 'user', text: 'Where can I find a bus?' },
-  { from: 'nori', text: 'Check the live map for bus positions — choose one to see its latest available location.' },
+  { from: 'nori', text: "I can't check that for you, but I'll take you to the live map where you can see bus positions.", action: 'Open Live Map' },
   { from: 'user', text: 'When will it arrive?' },
-  { from: 'nori', text: 'Open Arrivals for predictions near you. Allow location access for the best results.' },
+  { from: 'nori', text: "Let me take you to Arrivals — that screen shows predicted times near your location.", action: 'Open Arrivals' },
   { from: 'user', text: 'How much is the fare?' },
-  { from: 'nori', text: 'Head to Fares & Promos on Home for published fares and available discounts.' },
+  { from: 'nori', text: "I'll open the Fares & Promos section on Home so you can check published fares and discounts.", action: 'Open Fares & Promos' },
   { from: 'user', text: 'Thanks!' },
   { from: 'nori', text: "You're welcome — I'm here whenever you need a hand." },
 ]

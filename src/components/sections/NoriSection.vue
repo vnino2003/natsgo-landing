@@ -170,7 +170,10 @@ const P = {
                 <path :d="P.browL" stroke="#1F2937" stroke-width="9" stroke-linecap="round"/><path :d="P.browR" stroke="#1F2937" stroke-width="9" stroke-linecap="round"/>
                 <path :d="P.mouth" stroke="#1F2937" stroke-width="8" stroke-linecap="round" fill="none"/>
               </svg>
-              <p>{{ msg.text }}</p>
+              <div class="bubble-content">
+                <p>{{ msg.text }}</p>
+                <span v-if="msg.action" class="action-chip">{{ msg.action }} →</span>
+              </div>
             </div>
           </TransitionGroup>
 
@@ -350,10 +353,31 @@ const P = {
   align-self: flex-start;
 }
 
+.bubble-content {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
 .bubble.nori p {
   background: var(--surface-soft);
   color: var(--text);
   border-bottom-left-radius: 6px;
+}
+
+.action-chip {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: 4px;
+  padding: 5px 12px;
+  font-size: 12px;
+  font-weight: 650;
+  color: var(--brand);
+  background: var(--surface-blue);
+  border: 1px solid var(--brand);
+  border-radius: 20px;
+  opacity: 0.85;
 }
 
 .bubble.user {
