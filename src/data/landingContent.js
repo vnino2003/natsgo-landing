@@ -21,7 +21,7 @@ export const commuterPoints = [
   },
   {
     title: 'Route timing that improves',
-    body: 'NatsGo uses trip history and live movement to keep arrival estimates practical for the Calapan-Naujan route.',
+    body: 'NatsGo uses machine learning on trip history to keep arrival predictions practical for the Calapan-Naujan route.',
   },
 ]
 
@@ -67,9 +67,9 @@ export const commuterFeatures = [
     wide: true,
   },
   {
-    title: 'Arrival estimates',
-    body: 'Check the expected arrival time and distance when a bus is active on the route.',
-    meta: 'ETA',
+    title: 'Predicted arrivals',
+    body: 'ML-predicted arrival times based on recorded trip patterns, so you know when to expect a bus.',
+    meta: 'ML',
   },
   {
     title: 'Terminal details',
@@ -104,11 +104,11 @@ export const commuterFlow = [
 
 export const noriConversation = [
   { from: 'user', text: 'Are there any buses nearby?' },
-  { from: 'nori', text: "Let me pull up the live map so you can see which buses are active and nearby.", action: 'Open Live Map' },
+  { from: 'nori', text: "I found an active bus on the Calapan–Naujan route. Here's the live map so you can track it.", action: 'Track on Map' },
   { from: 'user', text: 'When will it arrive?' },
-  { from: 'nori', text: "I'll check Arrivals for you — allow location access so I can show predicted times near you.", action: 'Open Arrivals' },
+  { from: 'nori', text: "Based on your location, here are the predicted arrival times for buses near you.", action: 'View Arrivals' },
   { from: 'user', text: 'How much is the fare?' },
-  { from: 'nori', text: "Here, let me show you the published fares and available discounts.", action: 'Open Fares & Promos' },
+  { from: 'nori', text: "Here are the current fares and available discounts for your route.", action: 'View Fares' },
   { from: 'user', text: 'Thanks!' },
   { from: 'nori', text: "You're welcome — I'm here whenever you need a hand." },
 ]

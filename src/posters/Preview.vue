@@ -15,7 +15,7 @@ defineProps({ type: { default: 'tracking', type: String } })
      <g fill="white"><rect x="317" y="250" width="20" height="24" rx="4"/><circle cx="320" cy="277" r="3"/><circle cx="334" cy="277" r="3"/></g><rect x="320" y="254" width="14" height="9" rx="1" fill="#1e88e5"/>
     </svg><span class="map-label">CALAPAN</span><span class="map-demo">Illustrative map</span>
    </div>
-   <div class="ui-sheet"><div class="handle"></div><small>LIVE TRACKING</small><h3>Your bus, on the map.</h3><div class="ui-stats"><div><b>08 <em>min</em></b><span>Estimated arrival</span></div><div><b>2.4 <em>km</em></b><span>Distance away</span></div></div><p class="sample-label">Sample route & arrival data</p></div>
+   <div class="ui-sheet"><div class="handle"></div><small>LIVE TRACKING</small><h3>Your bus, on the map.</h3><div class="ui-stats"><div><b>08 <em>min</em></b><span>Predicted arrival</span></div><div><b>2.4 <em>km</em></b><span>Distance away</span></div></div><p class="sample-label">Sample route & arrival data</p></div>
   </template>
   <template v-else-if="type === 'arrivals'">
    <div class="arrivals-preview"><small>PLAN YOUR NEXT RIDE</small><h3>Arrivals</h3><p>Predictions near your location</p><div class="prediction-location">⌖ &nbsp; Your selected area</div><div class="arrival-preview-card"><small>PREDICTED PASSING TIME</small><h4>08:15 <em>AM</em></h4><b>NatsCo bus · Sample route</b><p>Based on recorded trip patterns</p><span>Machine learning prediction</span></div><div class="arrival-preview-card later"><small>NEXT PREDICTION</small><h4>08:40 <em>AM</em></h4><b>NatsCo bus · Sample route</b></div><p class="sample-label">Illustrative data · Estimates may vary</p></div>

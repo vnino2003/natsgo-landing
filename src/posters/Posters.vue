@@ -43,7 +43,7 @@ onUnmounted(() => { removeEventListener('resize', resize); removeEventListener('
    <svg class="route-art" viewBox="0 0 1920 1080" aria-hidden="true"><path d="M800 1150C780 600 1470 900 1370 460S1670 -80 2070 180"/><circle cx="1370" cy="460" r="13"/><circle cx="1040" cy="812" r="10"/></svg>
    <header><div class="wordmark"><img src="/natsgo-mark.svg" alt="NatsGo logo"><span>Nats<em>Go</em></span></div><span class="release"><i></i> COMING OCTOBER 5</span></header>
    <section class="copy"><p class="kicker">{{ poster.kicker }}</p><h1>{{ poster.title }}</h1><p class="description">{{ poster.body }}</p>
-    <div v-if="poster.id === 'launch'" class="benefits"><span>Live bus locations</span><span>Estimated arrivals</span><span>Terminal details</span></div>
+    <div v-if="poster.id === 'launch'" class="benefits"><span>Live bus locations</span><span>Predicted arrivals</span><span>Terminal details</span></div>
     <div v-if="poster.id === 'tracking'" class="steps"><p><b>01</b> Find your bus</p><p><b>02</b> Check its progress</p><p><b>03</b> Plan your commute</p></div>
     <div v-if="poster.id === 'nori'" class="benefits"><span>Buses & arrivals</span><span>Fares & terminals</span></div>
     <div v-if="poster.id === 'access'" class="access-labels"><div><b>Mobile web</b><span>Right in your browser</span></div><div><b>Android app</b><span>Right on your home screen</span></div></div>
