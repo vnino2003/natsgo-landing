@@ -69,7 +69,7 @@ import { commuterFeatures } from '../../data/landingContent'
 .feature-index {
   margin-bottom: auto;
   color: var(--brand);
-  font-family: Sora, Inter, sans-serif;
+  font-family: var(--font-heading);
   font-size: 13px;
   font-weight: 850;
 }
@@ -77,7 +77,7 @@ import { commuterFeatures } from '../../data/landingContent'
 .feature-card h3 {
   max-width: 430px;
   color: var(--text);
-  font-family: Sora, Inter, sans-serif;
+  font-family: var(--font-heading);
   font-size: 20px;
   line-height: 1.15;
   letter-spacing: -0.04em;

@@ -58,7 +58,7 @@ import { commuterFlow } from '../../data/landingContent'
   border-radius: 22px;
   background: var(--brand);
   color: #fff;
-  font-family: Sora, Inter, sans-serif;
+  font-family: var(--font-heading);
   font-size: 14px;
   font-weight: 850;
   box-shadow: 0 16px 34px rgba(30, 136, 229, 0.24);
@@ -66,7 +66,7 @@ import { commuterFlow } from '../../data/landingContent'
 
 .flow-step h3 {
   color: var(--text);
-  font-family: Sora, Inter, sans-serif;
+  font-family: var(--font-heading);
   font-size: 18px;
   line-height: 1.2;
   letter-spacing: -0.04em;

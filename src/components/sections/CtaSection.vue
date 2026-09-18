@@ -80,7 +80,7 @@ import { appLinks } from '../../data/landingContent'
 
 .cta-card h2 {
   max-width: 650px;
-  font-family: Sora, Inter, sans-serif;
+  font-family: var(--font-heading);
   font-size: clamp(33px, 5vw, 60px);
   line-height: 1;
   letter-spacing: -0.055em;

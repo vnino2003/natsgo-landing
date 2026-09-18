@@ -65,7 +65,7 @@ function toggle(index) {
 }
 
 .faq-item button span {
-  font-family: Sora, Inter, sans-serif;
+  font-family: var(--font-heading);
   font-size: 15px;
   font-weight: 750;
   letter-spacing: -0.02em;

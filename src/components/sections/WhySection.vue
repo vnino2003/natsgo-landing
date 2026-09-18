@@ -58,7 +58,7 @@ import { commuterPoints } from '../../data/landingContent'
 
 .why-item h3 {
   color: var(--text);
-  font-family: Sora, Inter, sans-serif;
+  font-family: var(--font-heading);
   font-size: 18px;
   letter-spacing: -0.035em;
   line-height: 1.2;

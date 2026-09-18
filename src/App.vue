@@ -42,10 +42,10 @@ onMounted(() => {
       <HeroSection />
 
       <div class="divider"></div>
-      <PhoneShowcase />
+      <WhySection />
 
       <div class="divider"></div>
-      <WhySection />
+      <PhoneShowcase />
 
       <div class="divider"></div>
       <FeaturesSection />

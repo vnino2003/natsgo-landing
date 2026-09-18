@@ -50,7 +50,7 @@ onUnmounted(() => {
         <p class="section-kicker">Experience</p>
         <h2 class="section-title">Actual screens from the commuter app.</h2>
         <p class="section-sub">
-          Home, predicted arrivals, live tracking, terminals, and account tools shown with the
+          Home, predicted arrivals, live tracking, terminals, and bus details shown from the
           current NatsGo interface.
         </p>
 
@@ -82,7 +82,9 @@ onUnmounted(() => {
         <Transition name="screen-swap" mode="out-in">
           <article :key="currentScreen.title" class="screen-focus">
             <div class="screen-art">
-              <img :src="currentScreen.image" :alt="currentScreen.alt" loading="lazy" />
+              <div class="device-frame">
+                <img :src="currentScreen.image" :alt="currentScreen.alt" loading="lazy" />
+              </div>
             </div>
 
             <div class="screen-caption">
@@ -176,7 +178,7 @@ onUnmounted(() => {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: minmax(150px, 255px) minmax(170px, 1fr);
+  grid-template-columns: minmax(150px, 240px) minmax(170px, 1fr);
   gap: 28px;
   align-items: center;
   width: 100%;
@@ -187,11 +189,8 @@ onUnmounted(() => {
   place-items: center;
 }
 
-.screen-art img {
-  width: min(238px, 100%);
-  height: auto;
-  object-fit: contain;
-  filter: drop-shadow(0 24px 38px rgba(15, 23, 42, 0.16));
+.screen-art .device-frame {
+  width: min(228px, 100%);
 }
 
 .screen-caption {
@@ -212,7 +211,7 @@ onUnmounted(() => {
 .screen-caption strong {
   display: block;
   color: var(--text);
-  font-family: Inter, system-ui, sans-serif;
+  font-family: var(--font-heading);
   font-size: clamp(28px, 3.2vw, 42px);
   font-weight: 720;
   letter-spacing: -0.035em;
@@ -333,7 +332,7 @@ onUnmounted(() => {
     justify-content: start;
   }
 
-  .screen-art img {
+  .screen-art .device-frame {
     width: 108px;
   }
 
@@ -379,7 +378,7 @@ onUnmounted(() => {
     gap: 14px;
   }
 
-  .screen-art img {
+  .screen-art .device-frame {
     width: 96px;
   }
 

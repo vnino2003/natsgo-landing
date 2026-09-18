@@ -21,7 +21,7 @@ export const commuterPoints = [
   },
   {
     title: 'Route timing that improves',
-    body: 'NatsGo uses machine learning on trip history to keep arrival predictions practical for the Calapan-Naujan route.',
+    body: 'NatsGo uses machine learning on trip history to keep arrival predictions practical for the Calapan–Naujan route.',
   },
 ]
 
@@ -29,33 +29,33 @@ export const appScreens = [
   {
     title: 'Home',
     body: 'Weather, nearby buses, updates, and shortcuts in one place.',
-    image: '/screenshots/commuter-home-display.png',
-    alt: 'NatsGo home screen',
+    image: '/screenshots/campaign/home.jpg',
+    alt: 'NatsGo home screen showing nearby buses and weather',
     featured: true,
   },
   {
     title: 'Arrivals',
-    body: 'Prediction view for upcoming trips.',
-    image: '/screenshots/commuter-arrivals-display.png',
+    body: 'ML-predicted arrival times for every bus on the route.',
+    image: '/screenshots/campaign/arrivals.jpg',
     alt: 'NatsGo predicted arrivals screen',
   },
   {
     title: 'Track',
-    body: 'Map view with live bus positions.',
-    image: '/screenshots/commuter-track-display.png',
-    alt: 'NatsGo live tracking map screen',
+    body: 'Map view with live bus positions and ETA.',
+    image: '/screenshots/campaign/tracking.jpg',
+    alt: 'NatsGo live tracking map with buses on Calapan-Naujan route',
+  },
+  {
+    title: 'Bus Details',
+    body: 'Tap a bus to see its route, distance, and arrival time.',
+    image: '/screenshots/campaign/bus-details.jpg',
+    alt: 'NatsGo bus detail view with ETA and distance',
   },
   {
     title: 'Terminals',
-    body: 'Terminal cards with hours and status.',
-    image: '/screenshots/commuter-terminals-display.png',
-    alt: 'NatsGo terminals screen',
-  },
-  {
-    title: 'Account',
-    body: 'Profile, preferences, and activity.',
-    image: '/screenshots/commuter-account-display.png',
-    alt: 'NatsGo account screen',
+    body: 'Terminal cards with hours, location, and bus count.',
+    image: '/screenshots/campaign/terminals.jpg',
+    alt: 'NatsGo terminals screen showing Naujan and Calapan',
   },
 ]
 
@@ -116,7 +116,7 @@ export const noriConversation = [
 export const faqs = [
   {
     q: 'What route is this for?',
-    a: 'The current focus is the Natsco route between Calapan and Naujan.',
+    a: 'The current focus is the Natsco route between Calapan and Naujan in Oriental Mindoro.',
   },
   {
     q: 'Will commuters see plate numbers?',
@@ -124,7 +124,11 @@ export const faqs = [
   },
   {
     q: 'How are arrivals predicted?',
-    a: 'NatsGo can use completed trips, GPS logs, route direction, timing patterns, and live movement.',
+    a: 'NatsGo uses completed trips, GPS logs, route direction, and timing patterns through machine learning to estimate when buses may pass.',
+  },
+  {
+    q: 'Is it available on iPhone?',
+    a: 'NatsGo is accessible through any mobile browser. The dedicated app is currently Android only.',
   },
   {
     q: 'What else can commuters check?',

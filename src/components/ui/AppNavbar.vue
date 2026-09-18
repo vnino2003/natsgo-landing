@@ -106,7 +106,7 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
 
 .brand span {
   color: var(--text);
-  font-family: Sora, Inter, sans-serif;
+  font-family: var(--font-heading);
   font-size: 17px;
   font-weight: 850;
   letter-spacing: -0.04em;

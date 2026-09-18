@@ -47,8 +47,8 @@ import { appLinks } from '../../data/landingContent'
         <div class="orbit orbit-one"></div>
         <div class="orbit orbit-two"></div>
 
-        <div class="product-shot">
-          <img src="/screenshots/commuter-home-hero.png" alt="NatsGo commuter app home screen" />
+        <div class="hero-device device-frame">
+          <img src="/screenshots/campaign/home.jpg" alt="NatsGo commuter app home screen with nearby buses" />
         </div>
       </div>
     </div>
@@ -133,7 +133,7 @@ import { appLinks } from '../../data/landingContent'
 
 .hero h1 {
   max-width: 600px;
-  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: var(--font-heading);
   font-size: clamp(38px, 4.45vw, 60px);
   line-height: 1.05;
   letter-spacing: -0.039em;
@@ -217,21 +217,12 @@ import { appLinks } from '../../data/landingContent'
   opacity: 0.7;
 }
 
-.product-shot {
+.hero-device {
   position: relative;
   z-index: 3;
   width: min(252px, 40vw);
   transform: rotate(-1.2deg);
-  filter:
-    drop-shadow(0 28px 46px rgba(15, 23, 42, 0.14))
-    drop-shadow(0 10px 18px rgba(30, 136, 229, 0.12));
   animation: productFloat 7s var(--ease) infinite;
-}
-
-.product-shot img {
-  display: block;
-  width: 100%;
-  height: auto;
 }
 
 .hero-strip {
@@ -344,7 +335,7 @@ import { appLinks } from '../../data/landingContent'
     padding-top: 0;
   }
 
-  .product-shot {
+  .hero-device {
     width: min(210px, 58vw);
   }
 }
@@ -407,12 +398,9 @@ import { appLinks } from '../../data/landingContent'
     pointer-events: none;
   }
 
-  .product-shot {
+  .hero-device {
     width: 100%;
     transform: rotate(-0.8deg);
-    filter:
-      drop-shadow(0 24px 34px rgba(15, 23, 42, 0.12))
-      drop-shadow(0 10px 18px rgba(30, 136, 229, 0.1));
   }
 
   .orbit-one {
