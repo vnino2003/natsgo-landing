@@ -57,9 +57,9 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
           Download now
         </a>
       </template>
-      <span v-else class="nav-countdown">
-        <span class="nav-countdown-dot"></span>
-        {{ days }}d {{ hours }}h {{ minutes }}m — Oct 5
+      <span v-else class="nav-launch">
+        <span class="nav-launch-label">Launching</span>
+        <span class="nav-launch-date">Oct 5</span>
       </span>
     </div>
   </header>
@@ -198,35 +198,36 @@ nav a:hover {
   cursor: default;
 }
 
-.nav-countdown {
+.nav-launch {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
   height: 38px;
-  padding: 0 16px;
   border-radius: 999px;
-  background: rgba(30, 136, 229, 0.08);
-  border: 1px solid rgba(30, 136, 229, 0.18);
-  color: var(--brand);
+  background: var(--brand);
+  box-shadow: 0 12px 28px rgba(30, 136, 229, 0.24);
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.nav-launch-label {
+  padding: 0 12px 0 16px;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.nav-launch-date {
+  padding: 0 14px 0 12px;
+  height: 100%;
+  display: inline-flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
   font-family: var(--font-heading);
   font-size: 13px;
-  font-weight: 780;
-  letter-spacing: -0.01em;
-  white-space: nowrap;
-}
-
-.nav-countdown-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--green);
-  box-shadow: 0 0 0 3px rgba(22, 185, 120, 0.18);
-  animation: dot-pulse 2s ease-in-out infinite;
-}
-
-@keyframes dot-pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.4; }
+  font-weight: 820;
+  letter-spacing: -0.02em;
 }
 
 @keyframes navDrop {
@@ -271,16 +272,18 @@ nav a:hover {
     font-size: 12px;
   }
 
-  .nav-countdown {
+  .nav-launch {
     height: 34px;
-    padding: 0 12px;
-    font-size: 11px;
-    gap: 6px;
   }
 
-  .nav-countdown-dot {
-    width: 6px;
-    height: 6px;
+  .nav-launch-label {
+    padding: 0 8px 0 13px;
+    font-size: 11px;
+  }
+
+  .nav-launch-date {
+    padding: 0 12px 0 10px;
+    font-size: 12px;
   }
 }
 
