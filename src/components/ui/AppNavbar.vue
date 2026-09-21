@@ -57,10 +57,7 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
           Download now
         </a>
       </template>
-      <span v-else class="nav-launch">
-        <span class="nav-launch-label">Launching</span>
-        <span class="nav-launch-date">Oct 5</span>
-      </span>
+      <span v-else class="nav-launch">Oct 5</span>
     </div>
   </header>
 </template>
@@ -201,33 +198,16 @@ nav a:hover {
 .nav-launch {
   display: inline-flex;
   align-items: center;
-  height: 38px;
+  height: 34px;
+  padding: 0 14px;
   border-radius: 999px;
-  background: var(--brand);
-  box-shadow: 0 12px 28px rgba(30, 136, 229, 0.24);
-  white-space: nowrap;
-  overflow: hidden;
-}
-
-.nav-launch-label {
-  padding: 0 12px 0 16px;
-  color: rgba(255, 255, 255, 0.82);
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-}
-
-.nav-launch-date {
-  padding: 0 14px 0 12px;
-  height: 100%;
-  display: inline-flex;
-  align-items: center;
-  background: rgba(255, 255, 255, 0.15);
-  color: #fff;
-  font-family: var(--font-heading);
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.58);
+  backdrop-filter: blur(12px);
+  color: var(--muted);
   font-size: 13px;
-  font-weight: 820;
-  letter-spacing: -0.02em;
+  font-weight: 750;
+  white-space: nowrap;
 }
 
 @keyframes navDrop {
@@ -273,16 +253,8 @@ nav a:hover {
   }
 
   .nav-launch {
-    height: 34px;
-  }
-
-  .nav-launch-label {
-    padding: 0 8px 0 13px;
-    font-size: 11px;
-  }
-
-  .nav-launch-date {
-    padding: 0 12px 0 10px;
+    height: 30px;
+    padding: 0 11px;
     font-size: 12px;
   }
 }
