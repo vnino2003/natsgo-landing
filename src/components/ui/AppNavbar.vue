@@ -1,6 +1,9 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
-import { appLinks, navItems } from '../../data/landingContent'
+import { appLinks, navItems, launchDate } from '../../data/landingContent'
+import { useCountdown } from '../../composables/useCountdown'
+
+const { days, hours, minutes, launched } = useCountdown(launchDate)
 
 const compact = ref(false)
 
@@ -34,24 +37,30 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
     </nav>
 
     <div class="nav-actions">
-      <a
-        class="nav-web-link"
-        :href="appLinks.web || undefined"
-        :aria-disabled="!appLinks.web"
-        @click="!appLinks.web && $event.preventDefault()"
-      >
-        Open web app
-      </a>
-      <a
-        class="nav-action"
-        :href="appLinks.android || undefined"
-        :aria-disabled="!appLinks.android"
-        aria-label="Download Android app"
-        title="Download Android app"
-        @click="!appLinks.android && $event.preventDefault()"
-      >
-        Download now
-      </a>
+      <template v-if="launched">
+        <a
+          class="nav-web-link"
+          :href="appLinks.web || undefined"
+          :aria-disabled="!appLinks.web"
+          @click="!appLinks.web && $event.preventDefault()"
+        >
+          Open web app
+        </a>
+        <a
+          class="nav-action"
+          :href="appLinks.android || undefined"
+          :aria-disabled="!appLinks.android"
+          aria-label="Download Android app"
+          title="Download Android app"
+          @click="!appLinks.android && $event.preventDefault()"
+        >
+          Download now
+        </a>
+      </template>
+      <span v-else class="nav-countdown">
+        <span class="nav-countdown-dot"></span>
+        {{ days }}d {{ hours }}h {{ minutes }}m — Oct 5
+      </span>
     </div>
   </header>
 </template>
@@ -189,6 +198,37 @@ nav a:hover {
   cursor: default;
 }
 
+.nav-countdown {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 38px;
+  padding: 0 16px;
+  border-radius: 999px;
+  background: rgba(30, 136, 229, 0.08);
+  border: 1px solid rgba(30, 136, 229, 0.18);
+  color: var(--brand);
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 780;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+.nav-countdown-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 0 3px rgba(22, 185, 120, 0.18);
+  animation: dot-pulse 2s ease-in-out infinite;
+}
+
+@keyframes dot-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
 @keyframes navDrop {
   from {
     opacity: 0;
@@ -229,6 +269,18 @@ nav a:hover {
 
   .nav-web-link {
     font-size: 12px;
+  }
+
+  .nav-countdown {
+    height: 34px;
+    padding: 0 12px;
+    font-size: 11px;
+    gap: 6px;
+  }
+
+  .nav-countdown-dot {
+    width: 6px;
+    height: 6px;
   }
 }
 

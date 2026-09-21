@@ -3,6 +3,8 @@ export const appLinks = {
   android: '',
 }
 
+export const launchDate = new Date('2026-10-05T00:00:00+08:00')
+
 export const navItems = [
   { label: 'Why', href: '#commuters', id: 'commuters' },
   { label: 'Experience', href: '#screens', id: 'screens' },

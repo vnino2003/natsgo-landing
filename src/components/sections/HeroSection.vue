@@ -1,5 +1,8 @@
 <script setup>
-import { appLinks } from '../../data/landingContent'
+import { appLinks, launchDate } from '../../data/landingContent'
+import { useCountdown } from '../../composables/useCountdown'
+
+const { days, hours, minutes, seconds, launched } = useCountdown(launchDate)
 </script>
 
 <template>
@@ -23,7 +26,7 @@ import { appLinks } from '../../data/landingContent'
           See live bus location, nearby arrivals, terminal hours, fares, promos, and route updates
           in one simple commuter app.
         </p>
-        <div class="hero-actions">
+        <div v-if="launched" class="hero-actions">
           <a
             class="btn-primary"
             :href="appLinks.android || undefined"
@@ -40,6 +43,31 @@ import { appLinks } from '../../data/landingContent'
           >
             Open web app
           </a>
+        </div>
+
+        <div v-else class="hero-countdown" aria-label="Launch countdown">
+          <p class="countdown-label">Launching October 5</p>
+          <div class="countdown-grid">
+            <div class="countdown-unit">
+              <span>{{ String(days).padStart(2, '0') }}</span>
+              <small>Days</small>
+            </div>
+            <div class="countdown-sep">:</div>
+            <div class="countdown-unit">
+              <span>{{ String(hours).padStart(2, '0') }}</span>
+              <small>Hours</small>
+            </div>
+            <div class="countdown-sep">:</div>
+            <div class="countdown-unit">
+              <span>{{ String(minutes).padStart(2, '0') }}</span>
+              <small>Min</small>
+            </div>
+            <div class="countdown-sep">:</div>
+            <div class="countdown-unit">
+              <span>{{ String(seconds).padStart(2, '0') }}</span>
+              <small>Sec</small>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -187,6 +215,66 @@ import { appLinks } from '../../data/landingContent'
 
 .hero-actions a[aria-disabled="true"] {
   cursor: default;
+}
+
+.hero-countdown {
+  margin-top: 30px;
+  animation: heroTextIn 840ms var(--ease) 430ms both;
+}
+
+.countdown-label {
+  color: var(--brand);
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 780;
+  letter-spacing: 0.02em;
+  margin-bottom: 14px;
+}
+
+.countdown-grid {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 14px 22px;
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow: var(--shadow-sm);
+  backdrop-filter: blur(12px);
+}
+
+.countdown-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 48px;
+}
+
+.countdown-unit span {
+  font-family: var(--font-heading);
+  font-size: 30px;
+  font-weight: 750;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--text);
+}
+
+.countdown-unit small {
+  margin-top: 4px;
+  font-size: 11px;
+  font-weight: 650;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.countdown-sep {
+  font-family: var(--font-heading);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--faint);
+  margin: 0 2px;
+  padding-bottom: 16px;
 }
 
 .hero-stage {
@@ -383,6 +471,39 @@ import { appLinks } from '../../data/landingContent'
   .hero-actions {
     gap: 12px;
     margin-top: 20px;
+  }
+
+  .hero-countdown {
+    margin-top: 20px;
+  }
+
+  .countdown-label {
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+
+  .countdown-grid {
+    gap: 3px;
+    padding: 10px 14px;
+    border-radius: 16px;
+  }
+
+  .countdown-unit {
+    min-width: 36px;
+  }
+
+  .countdown-unit span {
+    font-size: 22px;
+  }
+
+  .countdown-unit small {
+    font-size: 9px;
+    margin-top: 2px;
+  }
+
+  .countdown-sep {
+    font-size: 18px;
+    padding-bottom: 12px;
   }
 
   .hero-stage {

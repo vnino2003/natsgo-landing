@@ -1,5 +1,8 @@
 <script setup>
-import { appLinks } from '../../data/landingContent'
+import { appLinks, launchDate } from '../../data/landingContent'
+import { useCountdown } from '../../composables/useCountdown'
+
+const { days, hours, minutes, seconds, launched } = useCountdown(launchDate)
 </script>
 
 <template>
@@ -12,7 +15,7 @@ import { appLinks } from '../../data/landingContent'
           See how NatsGo presents Natsco bus tracking, arrivals, fares, terminals, and updates.
         </p>
       </div>
-      <div class="cta-actions">
+      <div v-if="launched" class="cta-actions">
         <a
           class="btn-primary cta-download"
           :href="appLinks.android || undefined"
@@ -33,6 +36,30 @@ import { appLinks } from '../../data/landingContent'
         >
           Open web app
         </a>
+      </div>
+
+      <div v-else class="cta-countdown">
+        <div class="cta-countdown-grid">
+          <div class="cta-countdown-unit">
+            <span>{{ String(days).padStart(2, '0') }}</span>
+            <small>Days</small>
+          </div>
+          <div class="cta-countdown-sep">:</div>
+          <div class="cta-countdown-unit">
+            <span>{{ String(hours).padStart(2, '0') }}</span>
+            <small>Hours</small>
+          </div>
+          <div class="cta-countdown-sep">:</div>
+          <div class="cta-countdown-unit">
+            <span>{{ String(minutes).padStart(2, '0') }}</span>
+            <small>Min</small>
+          </div>
+          <div class="cta-countdown-sep">:</div>
+          <div class="cta-countdown-unit">
+            <span>{{ String(seconds).padStart(2, '0') }}</span>
+            <small>Sec</small>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -127,6 +154,55 @@ import { appLinks } from '../../data/landingContent'
   cursor: default;
 }
 
+.cta-countdown {
+  position: relative;
+  z-index: 1;
+}
+
+.cta-countdown-grid {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 22px;
+  padding: 18px 28px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+}
+
+.cta-countdown-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 52px;
+}
+
+.cta-countdown-unit span {
+  font-family: var(--font-heading);
+  font-size: 34px;
+  font-weight: 750;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: #fff;
+}
+
+.cta-countdown-unit small {
+  margin-top: 4px;
+  font-size: 11px;
+  font-weight: 650;
+  color: rgba(255, 255, 255, 0.56);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.cta-countdown-sep {
+  font-family: var(--font-heading);
+  font-size: 26px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.32);
+  padding-bottom: 18px;
+}
+
 @media (max-width: 780px) {
   .cta-section {
     padding: 58px 0 84px;
@@ -158,6 +234,29 @@ import { appLinks } from '../../data/landingContent'
   .cta-card .btn-primary,
   .cta-card .btn-secondary {
     width: 100%;
+  }
+
+  .cta-countdown-grid {
+    gap: 4px;
+    padding: 14px 18px;
+    border-radius: 18px;
+  }
+
+  .cta-countdown-unit {
+    min-width: 40px;
+  }
+
+  .cta-countdown-unit span {
+    font-size: 24px;
+  }
+
+  .cta-countdown-unit small {
+    font-size: 9px;
+  }
+
+  .cta-countdown-sep {
+    font-size: 20px;
+    padding-bottom: 14px;
   }
 }
 </style>

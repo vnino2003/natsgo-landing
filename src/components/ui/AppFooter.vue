@@ -50,9 +50,9 @@ import { appLinks } from '../../data/landingContent'
       <div class="footer-col">
         <h4>Developers</h4>
         <ul class="dev-list">
-          <li>Vincent Niño Vertudo</li>
-          <li>Argie Delima</li>
-          <li>Brent Libang</li>
+          <li>Vincent Nino B. Acha</li>
+          <li>Von Lester Bacay</li>
+          <li>Marjorie Canubas</li>
         </ul>
       </div>
     </div>
